@@ -346,6 +346,8 @@ void RSP_Init()
 		config.generalEmulation.hacks |= hack_TonyHawk;
 	else if (strstr(RSP.romname, (const char *)"NITRO64") != nullptr)
 		config.generalEmulation.hacks |= hack_WCWNitro;
+    else if (strstr(RSP.romname, (const char *)"DMGJ") != nullptr)
+        config.generalEmulation.hacks |= hack_PolygonStudio;
 
 	api().FindPluginPath(RSP.pluginpath);
 

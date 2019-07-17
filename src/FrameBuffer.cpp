@@ -689,7 +689,7 @@ void FrameBufferList::saveBuffer(u32 _address, u16 _format, u16 _size, u16 _widt
 	if (m_pCurrent != nullptr &&
 		config.frameBufferEmulation.copyAuxToRDRAM != 0 &&
 		(config.generalEmulation.hacks & hack_Snap) == 0) {
-		if (m_pCurrent->isAuxiliary()) {
+		if (m_pCurrent->isAuxiliary() || ((m_pCurrent->m_startAddress == 0x770800) && ((config.generalEmulation.hacks & hack_PolygonStudio) != 0))) {
 			FrameBuffer_CopyToRDRAM(m_pCurrent->m_startAddress, true);
 			removeBuffer(m_pCurrent->m_startAddress);
 		}

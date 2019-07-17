@@ -216,6 +216,7 @@ struct Config
 #define hack_ZeldaMonochrome		(1<<20) //Hack for Zeldas monochrome effects.
 #define hack_TonyHawk				(1<<21) //Hack for Tony Hawk blend mode.
 #define hack_WCWNitro				(1<<22) //Hack for WCW Nitro backgrounds.
+#define hack_PolygonStudio			(1<<23) //Hack for Mario Artist Polygon Studio's Aux Full Size buffer
 
 extern Config config;
 
