@@ -537,6 +537,7 @@ public:
 		LocateUniform(uAlphaCvgSel);
 		LocateUniform(uCvgXAlpha);
 		LocateUniform(uAlphaTestValue);
+        LocateUniform(uCvgDest);
 	}
 
 	void update(bool _force) override
@@ -561,8 +562,9 @@ public:
 		}
 		else {
 			uEnableAlphaTest.set(0, _force);
+            uAlphaCvgSel.set(gDP.otherMode.alphaCvgSel, _force);
 		}
-
+        uCvgDest.set(gDP.otherMode.cvgDest, _force);
 		uCvgXAlpha.set(gDP.otherMode.cvgXAlpha, _force);
 	}
 
@@ -571,6 +573,7 @@ private:
 	iUniform uAlphaCvgSel;
 	iUniform uCvgXAlpha;
 	fUniform uAlphaTestValue;
+    iUniform uCvgDest;
 };
 
 class UDepthScale : public UniformGroup

@@ -746,6 +746,7 @@ public:
 			"uniform lowp int uCvgXAlpha;			\n"
 			"uniform lowp int uAlphaCvgSel;			\n"
 			"uniform lowp float uAlphaTestValue;	\n"
+            "uniform lowp int uCvgDest;			    \n"
 			"uniform lowp int uDepthSource;			\n"
 			"uniform highp float uPrimDepth;		\n"
 			"uniform mediump vec2 uScreenScale;		\n"
@@ -840,6 +841,7 @@ public:
 			"uniform lowp int uCvgXAlpha;			\n"
 			"uniform lowp int uAlphaCvgSel;			\n"
 			"uniform lowp float uAlphaTestValue;	\n"
+            "uniform lowp int uCvgDest;			    \n"
 			"uniform lowp int uDepthSource;			\n"
 			"uniform highp float uPrimDepth;		\n"
 			"uniform mediump vec2 uScreenScale;		\n"
@@ -2477,6 +2479,9 @@ graphics::CombinerProgram * CombinerProgramBuilder::buildCombinerProgram(Combine
 		m_fragmentCallN64Depth->write(ssShader);
 	else
 		m_fragmentRenderTarget->write(ssShader);
+
+    // Deal with Alpha = Coverage = 1.0f
+    ssShader << "  if (uAlphaCvgSel != 0 && uCvgDest == 2) fragColor.a = 1.0;" << std::endl;
 
 	// End of Main() function
 	m_shaderFragmentMainEnd->write(ssShader);

@@ -254,10 +254,6 @@ void gDPSetPrimColor( u32 m, u32 l, u32 r, u32 g, u32 b, u32 a )
 	gDP.primColor.g = _FIXED2FLOATCOLOR( g, 8 );
 	gDP.primColor.b = _FIXED2FLOATCOLOR( b, 8 );
 	gDP.primColor.a = _FIXED2FLOATCOLOR( a, 8 );
-    if ((gDP.primColor.a == 0.0f) && (gDP.colorImage.address >= 0x74B000) && ((config.generalEmulation.hacks & hack_PolygonStudio) != 0))
-    {
-        gDP.primColor.a = 1.0f;
-    }
 	DebugMsg( DEBUG_NORMAL, "gDPSetPrimColor( %i, %i, %i, %i, %i, %i );\n", m, l, r, g, b, a );
 }
 
